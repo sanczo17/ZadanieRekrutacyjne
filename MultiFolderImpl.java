@@ -1,11 +1,11 @@
 import java.util.*;
 
-class SimpleMultiFolder implements MultiFolder {
+class MultiFolderImpl implements MultiFolder {
     private String name;
     private String size;
     private List<Folder> subFolders;
 
-    public SimpleMultiFolder(String name, String size, List<Folder> subFolders) {
+    public MultiFolderImpl(String name, String size, List<Folder> subFolders) {
         this.name = name;
         this.size = size;
         this.subFolders = subFolders;

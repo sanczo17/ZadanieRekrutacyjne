@@ -12,9 +12,9 @@ interface Cabinet {
     int count();
 }
 
-abstract class FileCabinet implements Cabinet {
-    private List<Folder> folders;
-}
+//public class FileCabinet implements Cabinet {
+//    private List<Folder> folders;
+//}
 
 interface Folder {
     String getName();

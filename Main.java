@@ -1,13 +1,13 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        Folder f1 = new SimpleFolder("Dokumenty", "SMALL");
-        Folder f2 = new SimpleFolder("Zdjęcia", "LARGE");
-        Folder f3 = new SimpleFolder("Muzyka", "MEDIUM");
+        Folder f1 = new FolderImp("Dokumenty", "SMALL");
+        Folder f2 = new FolderImp("Zdjęcia", "LARGE");
+        Folder f3 = new FolderImp("Muzyka", "MEDIUM");
 
-        Folder sub1 = new SimpleFolder("Notatki", "SMALL");
-        Folder sub2 = new SimpleFolder("Rachunki", "MEDIUM");
-        MultiFolder multi1 = new SimpleMultiFolder("Domowe", "LARGE", List.of(sub1, sub2));
+        Folder sub1 = new FolderImp("Notatki", "SMALL");
+        Folder sub2 = new FolderImp("Rachunki", "MEDIUM");
+        MultiFolder multi1 = new MultiFolderImpl("Domowe", "LARGE", List.of(sub1, sub2));
 
         List<Folder> allFolders = new ArrayList<>();
         allFolders.add(f1);
