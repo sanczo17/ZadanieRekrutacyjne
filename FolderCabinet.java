@@ -87,4 +87,20 @@ public class FolderCabinet implements Cabinet {
         }
         return count;
     }
+
+    public List<Folder> getAllFolders() {
+        List<Folder> all = new ArrayList<>();
+        collectAllFolders(folders, all);
+        return all;
+    }
+
+    private void collectAllFolders(List<Folder> source, List<Folder> result) {
+        for (Folder folder : source) {
+            result.add(folder);
+            if (folder instanceof MultiFolder) {
+                collectAllFolders(((MultiFolder) folder).getFolders(), result);
+            }
+        }
+    }
+
 }
