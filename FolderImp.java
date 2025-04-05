@@ -1,8 +1,8 @@
 class FolderImp implements Folder {
     private String name;
-    private String size;
+    private FolderSize size;
 
-    public FolderImp(String name, String size) {
+    public FolderImp(String name, FolderSize size) {
         this.name = name;
         this.size = size;
     }
@@ -11,7 +11,7 @@ class FolderImp implements Folder {
         return name;
     }
 
-    public String getSize() {
+    public FolderSize getSize() {
         return size;
     }
 

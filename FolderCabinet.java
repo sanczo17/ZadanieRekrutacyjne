@@ -6,7 +6,7 @@ interface Cabinet {
     findFolderByName(String name);
 
     // zwraca wszystkie foldery podanego rozmiaru SMALL/MEDIUM/LARGE
-    List<Folder> findFoldersBySize(String size);
+    List<Folder> findFoldersBySize(FolderSize size);
 
     //zwraca liczbę wszystkich obiektów tworzących strukturę
     int count();
@@ -16,9 +16,10 @@ interface Cabinet {
 //    private List<Folder> folders;
 //}
 
+enum FolderSize {Small, Medium, Large}
 interface Folder {
     String getName();
-    String getSize();
+    FolderSize getSize();
 }
 
 interface MultiFolder extends Folder {
@@ -38,7 +39,7 @@ public class FolderCabinet implements Cabinet {
     }
 
     @Override
-    public List<Folder> findFoldersBySize(String size) {
+    public List<Folder> findFoldersBySize(FolderSize size) {
         List<Folder> result = new ArrayList<>();
         findBySizeRecursive(folders, size, result);
         return result;
@@ -65,9 +66,9 @@ public class FolderCabinet implements Cabinet {
         return Optional.empty();
     }
 
-    private void findBySizeRecursive(List<Folder> folders, String size, List<Folder> result) {
+    private void findBySizeRecursive(List<Folder> folders, FolderSize size, List<Folder> result) {
         for (Folder folder : folders) {
-            if (folder.getSize().equals(size)) {
+            if (folder.getSize() == size) {
                 result.add(folder);
             }
             if (folder instanceof MultiFolder) {

@@ -1,13 +1,13 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        Folder f1 = new FolderImp("Dokumenty", "SMALL");
-        Folder f2 = new FolderImp("Zdjęcia", "LARGE");
-        Folder f3 = new FolderImp("Muzyka", "MEDIUM");
+        Folder f1 = new FolderImp("Dokumenty", FolderSize.Small);
+        Folder f2 = new FolderImp("Zdjęcia", FolderSize.Large);
+        Folder f3 = new FolderImp("Muzyka", FolderSize.Medium);
 
-        Folder sub1 = new FolderImp("Notatki", "SMALL");
-        Folder sub2 = new FolderImp("Rachunki", "MEDIUM");
-        MultiFolder multi1 = new MultiFolderImpl("Domowe", "LARGE", List.of(sub1, sub2));
+        Folder sub1 = new FolderImp("Notatki", FolderSize.Small);
+        Folder sub2 = new FolderImp("Rachunki", FolderSize.Medium);
+        MultiFolder multi1 = new MultiFolderImpl("Domowe", FolderSize.Large, List.of(sub1, sub2));
 
         List<Folder> allFolders = new ArrayList<>();
         allFolders.add(f1);
@@ -21,7 +21,7 @@ public class Main {
         System.out.println(cabinet.findFolderByName("Notatki").orElse(null));
 
         System.out.println("\nFoldery o rozmiarze 'SMALL':");
-        for (Folder f : cabinet.findFoldersBySize("SMALL")) {
+        for (Folder f : cabinet.findFoldersBySize(FolderSize.Small)) {
             System.out.println(f);
         }
 
